@@ -3,6 +3,31 @@ import numpy as np
 import datetime as dt
 import xlrd
 import requests
+## GEO API ###
+
+# long_list = [153.044438, 153.042078, 153.052707]
+#
+# lat_list = [-27.630777, -27.642221, -27.604297]
+#
+# url = "https://geocode.xyz/"
+# url2 = "?geoit=json"
+#
+# for n in range(len(long_list)):
+#     start = dt.datetime.now()
+#     long = long_list[n]
+#     lat = lat_list[n]
+#     long_lat = str(lat) + "," + str(long)
+#
+#     url_full = url + long_lat + url2
+#     response = requests.get(url_full)
+#
+#     json = response.json()
+#     json2 = json["alt"]
+#     print(url_full + " completed in " + str(dt.datetime.now() - start))
+#     print(json)
+
+
+### DOG BREEDS API ###
 
 # url = 'https://dog.ceo/api/breeds/list/all'
 #
@@ -20,6 +45,8 @@ import requests
 #
 #     for breed in dogs[key]:
 #         print("->" + breed)
+
+### EURO FX API ###
 
 last_years_euro_fx = {}
 
@@ -1121,18 +1148,98 @@ date_list_2015 = ['2015-01-01'
 ,'2015-12-30'
 ,'2015-12-31']
 
-for date in date_list_2015:
-    start = dt.datetime.now()
-    try:
-        url = "https://api.fixer.io/" + date
-        response = requests.get(url)
+# for date in date_list_2016:
+#     start = dt.datetime.now()
+#     try:
+#         url = "https://api.fixer.io/" + date
+#         response = requests.get(url)
+#
+#         latest_fx = response.json()
+#         last_years_euro_fx[latest_fx['date']] = latest_fx['rates']
+#         print(url + " completed in " + str(dt.datetime.now() - start))
+#     except:
+#         print(url + " produced an error.")
+#
+# print(last_years_euro_fx)
+#
+# data = pd.DataFrame(last_years_euro_fx)
+#
+# data.to_csv("2016_euro_fx.csv")
 
-        latest_fx = response.json()
-        last_years_euro_fx[latest_fx['date']] = latest_fx['rates']
-        print(url + " completed in " + str(dt.datetime.now() - start))
-    except:
-        print(url + " produced an error.")
+### GENDER API ###
 
-data = pd.DataFrame(last_years_euro_fx)
+# name = "ashley"
+#
+# url_part = "https://api.genderize.io/?name="
+# url_full = url_part + name
+#
+# response = requests.get(url_full)
+#
+# json_object = response.json()
+#
+# print(json_object)
 
-data.to_csv("2015_euro_fx.csv")
+### CRYPTO API ###
+# cryp_keys = ['$$$', '1337', '2give', '42', '611', '808', '888', '8bit', 'abj', 'abn', 'aby', 'ac', 'acc', 'aces', 'acn', 'acoin', 'acp', 'act', 'ada', 'adc', 'adcn', 'adk', 'adz', 'aeon', 'aerm', 'aglc', 'aib', 'aky', 'all', 'alqo', 'altc', 'altcom', 'amber', 'ammo', 'ams', 'anc', 'ani', 'anti', 'antx', 'apc', 'apw', 'arb', 'arc', 'arco', 'ardr', 'arg', 'argus', 'ari', 'ark', 'asafe2', 'asn', 'atb', 'atmc', 'atms', 'atom', 'atx', 'au', 'aur', 'av', 'axiom', 'b2x', 'bac', 'bash', 'bay', 'bbp', 'bbr', 'bca', 'bcc', 'bcd', 'bcf', 'bch', 'bcn', 'bco', 'bcx', 'bdl', 'bela', 'benji', 'bern', 'best', 'bet', 'bigup', 'biob', 'bios', 'bip', 'birds', 'bis', 'bit', 'bitb', 'bitok', 'bits', 'bitz', 'blas', 'blazr', 'blc', 'blitz', 'blk', 'block', 'blry', 'blt', 'blu', 'bnx', 'boat', 'boli', 'bos', 'bpl', 'brain', 'bria', 'brit', 'brk', 'bro', 'brx', 'bsc', 'bsd', 'bsn', 'bsr', 'bstar', 'bsty', 'bt2', 'bta', 'btb', 'btbc', 'btc', 'btcd', 'btcr', 'btcs', 'btcz', 'btdx', 'btg', 'btm', 'btpl', 'btq', 'bts', 'btw', 'btx', 'bub', 'bucks', 'bumba', 'bun', 'burst', 'buzz', 'bvc', 'bwk', 'bxc', 'bxt', 'byc', 'c2', 'cab', 'cach', 'calc', 'cann', 'carbon', 'cash', 'cat', 'cbd', 'cbx', 'cc', 'ccn', 'ccrb', 'cdn', 'cesc', 'cf', 'chan', 'chc', 'cheap', 'chess', 'chips', 'cj', 'clam', 'cloak', 'club', 'cme', 'cmp', 'cmpco', 'cmt', 'cnnc', 'cno', 'cnt', 'cnx', 'coal', 'colx', 'con', 'conx', 'coupe', 'cpc', 'cpn', 'crave', 'crc', 'crdnc', 'crea', 'creva', 'crm', 'crt', 'crw', 'crx', 'csc', 'ctic2', 'cto', 'cube', 'cure', 'cv2', 'cwxt', 'cxt', 'cyc', 'cyder', 'cyp', 'dash', 'dashs', 'dav', 'daxx', 'dbg', 'dbix', 'dbtc', 'dcr', 'dcre', 'dct', 'dcy', 'dem', 'des', 'deus', 'dfs', 'dft', 'dgb', 'dgc', 'dgcs', 'dime', 'disk', 'dlc', 'dlisk', 'dmb', 'dmc', 'dmd', 'dnr', 'doge', 'dollar', 'don', 'dope', 'dot', 'dp', 'drm', 'drs', 'drxne', 'dsh', 'dsr', 'dub', 'duo', 'dutch', 'dyn', 'eac', 'eag', 'ebst', 'ebt', 'eca', 'ecc', 'ecn', 'eco', 'edr', 'edrc', 'efl', 'egc', 'egg', 'ego', 'el', 'ela', 'elc', 'ele', 'ella', 'els', 'emc', 'emc2', 'emd', 'enrg', 'ent', 'eqt', 'erc', 'ery', 'esp', 'etc', 'eth', 'ethd', 'etn', 'etp', 'euc', 'evil', 'evo', 'excl', 'exp', 'fair', 'fazz', 'fc2', 'fcn', 'fct', 'ffc', 'fid', 'fil', 'fimk', 'fire', 'fjc', 'flap', 'flash', 'flax', 'flo', 'flt', 'flvr', 'fly', 'fnc', 'fonz', 'for', 'frc', 'frgc', 'frk', 'frn', 'frst', 'frwc', 'fst', 'ftc', 'futc', 'fuzz', 'g3n', 'gaia', 'gain', 'gam', 'game', 'gap', 'gay', 'gb', 'gbc', 'gbg', 'gbt', 'gbx', 'gbyte', 'gcc', 'gcn', 'gcr', 'gdc', 'geert', 'glc', 'gld', 'gls', 'glt', 'gml', 'gmx', 'god', 'golf', 'golos', 'gp', 'gpl', 'gpu', 'grc', 'gre', 'grim', 'grlc', 'grn', 'grs', 'grwi', 'gsr', 'gtc', 'gun', 'gxs', 'hal', 'hallo', 'hbc', 'hbn', 'hc', 'hcc', 'heat', 'high', 'hmc', 'hmp', 'hnc', 'hodl', 'hold', 'honey', 'hpc', 'hsr', 'ht', 'htc', 'html', 'html5', 'huc', 'hush', 'hvco', 'hwc', 'hxx', 'hyp', 'hyper', 'i0c', 'ibank', 'ic', 'icn', 'icob', 'icon', 'ifc', 'iflt', 'imps', 'ims', 'imx', 'india', 'inf', 'infx', 'inn', 'insn', 'ioc', 'ion', 'iop', 'irl', 'isl', 'iti', 'itns', 'ivz', 'ixc', 'j', 'jin', 'jiyo', 'jobs', 'jwl', 'karma', 'kashh', 'kayi', 'kb3', 'ked', 'kek', 'klc', 'kmd', 'knc', 'kobo', 'kore', 'krb', 'krone', 'kurt', 'kush', 'kzc', 'lana', 'laz', 'lbc', 'lbtc', 'lcp', 'ldcn', 'ldoge', 'lea', 'leo', 'lepen', 'linda', 'linx', 'lir', 'lkc', 'lkk', 'lmc', 'log', 'lsk', 'ltb', 'ltc', 'ltcr', 'ltcu', 'lth', 'luna', 'lux', 'lvps', 'mac', 'mad', 'mag', 'mage', 'magn', 'mao', 'mar', 'mars', 'marx', 'max', 'may', 'mbl', 'mcrn', 'mdc', 'mec', 'meme', 'men', 'metal', 'mgc', 'mgm', 'milo', 'mint', 'miota', 'mmxvi', 'mnc', 'mnd', 'mnm', 'mnx', 'moin', 'mojo', 'mona', 'moneta', 'money', 'monk', 'moon', 'moto', 'mscn', 'msd', 'mst', 'mtlmc3', 'mtnc', 'mue', 'music', 'mxt', 'mzc', 'namo', 'nanox', 'nav', 'nbit', 'nebl', 'neo', 'neos', 'net', 'netko', 'neva', 'nka', 'nlc2', 'nlg', 'nmc', 'nobl', 'nodc', 'note', 'nro', 'ntrn', 'nuko', 'nvc', 'nxs', 'nxt', 'nyan', 'nyc', 'odn', 'of', 'off', 'ok', 'omc', 'omni', 'onion', 'onx', 'op', 'opal', 'opc', 'opes', 'orb', 'ore', 'orly', 'os76', 'oxy', 'p7c', 'pac', 'pak', 'part', 'pasc', 'payp', 'pcn', 'pcoin', 'pcs', 'pdg', 'pec', 'pex', 'pho', 'phr', 'phs', 'pie', 'piggy', 'pink', 'pirl', 'pivx', 'pizza', 'pkb', 'placo', 'plnc', 'pnd', 'pnx', 'poke', 'polis', 'ponzi', 'pop', 'post', 'posw', 'pot', 'ppc', 'ppy', 'pr', 'prc', 'primu', 'prm', 'prn', 'proc', 'prx', 'psy', 'ptc', 'pulse', 'pura', 'pure', 'put', 'px', 'pxc', 'pxi', 'pzm', 'q2c', 'qbc', 'qbic', 'qbt', 'qcn', 'qora', 'qrk', 'qtl', 'qtum', 'rads', 'rain', 'rbbt', 'rbies', 'rbt', 'rby', 'rc', 'rcn', 'rdd', 'rec', 'red', 'ree', 'rega', 'rhfc', 'ric', 'richx', 'ride', 'rise', 'rmc', 'rns', 'roofs', 'royal', 'rpc', 'rsgp', 'rubit', 'runners', 'rup', 'rupx', 'sac', 'saga', 'sak', 'sandg', 'sbc', 'sbd', 'sbtc', 'sc', 'score', 'scrt', 'scs', 'sdc', 'sdp', 'send', 'seq', 'sfc', 'sfe', 'sh', 'sha', 'shell', 'shift', 'shnd', 'shorty', 'sib', 'sic', 'sigma', 'sigt', 'skc', 'skr', 'skull', 'sky', 'slevin', 'slfi', 'slg', 'sling', 'slr', 'sls', 'smart', 'smc', 'smly', 'snrg', 'socc', 'soil', 'soj', 'song', 'soon', 'space', 'spex', 'sphr', 'spk', 'sport', 'spr', 'sprts', 'spt', 'src', 'stak', 'stars', 'start', 'steem', 'steps', 'stn', 'strat', 'sts', 'stv', 'sumo', 'super', 'swing', 'sxc', 'synx', 'sys', 'tag', 'tagr', 'taj', 'talk', 'tcc', 'tcoin', 'tcr', 'team', 'tek', 'tell', 'ter', 'tera', 'tes', 'tgc', 'thc', 'ths', 'tips', 'tit', 'tle', 'toa', 'today', 'tok', 'tokc', 'top', 'topaz', 'tor', 'trc', 'trf', 'tri', 'trick', 'trk', 'troll', 'trump', 'trust', 'tse', 'tstr', 'ttc', 'turbo', 'tx', 'tycho', 'tzc', 'ubq', 'ubtc', 'ufo', 'uis', 'ula', 'unb', 'unc', 'uni', 'unic', 'unify', 'unit', 'units', 'uno', 'unrc', 'ur', 'urc', 'uro', 'usc', 'usnbt', 'uta', 'utc', 'v', 'val', 'vash', 'vc', 'vec2', 'via', 'vidz', 'vip', 'visio', 'vivo', 'vlt', 'vltc', 'volt', 'vot', 'vox', 'voya', 'vprc', 'vrc', 'vrm', 'vsx', 'vta', 'vtc', 'vtr', 'vuc', 'vulc', 'wa', 'warp', 'waves', 'way', 'wbb', 'wc', 'wdc', 'whl', 'wink', 'wmc', 'women', 'worm', 'wow', 'wsx', 'x2', 'xas', 'xau', 'xbc', 'xbtc21', 'xbts', 'xby', 'xcn', 'xco', 'xcp', 'xcpo', 'xcre', 'xcs', 'xct', 'xcxt', 'xde2', 'xdn', 'xel', 'xem', 'xft', 'xgox', 'xgr', 'xhi', 'xid', 'xin', 'xios', 'xjo', 'xlc', 'xlm', 'xlr', 'xmcc', 'xmg', 'xmr', 'xmy', 'xng', 'xoc', 'xp', 'xpd', 'xpm', 'xptx', 'xpy', 'xqn', 'xra', 'xrb', 'xrc', 'xre', 'xrp', 'xry', 'xsh', 'xspec', 'xst', 'xstc', 'xtd', 'xto', 'xtz', 'xvc', 'xve', 'xvg', 'xvp', 'xwc', 'xzc', 'yac', 'yash', 'yes', 'yoc', 'ytn', 'zbc', 'zcl', 'zec', 'zeit', 'zen', 'zeni', 'zeph', 'zer', 'zet', 'zmc', 'zne', 'zny', 'zoi', 'zse', 'zur', 'zyd', 'zzc']
+#
+# url_part_1 = "https://coinbin.org/zoi/history"
+# url_part_3 = "/history"
+# url_full = url1 +  + url2
+#
+# response = requests.get(url)
+#
+# json_object = response.json()
+#
+# print(json_object)
+
+# for coin in cryp_keys:
+
+# for coin in cryp_keys:
+#     try:
+#         output_path = "cryp\\" + coin + ".csv"
+#
+#         #create url
+#
+#         url_part_1 = "https://coinbin.org/"
+#         url_part_3 = "/history"
+#         url_part_2 = coin
+#
+#         start = dt.datetime.now()
+#
+#         url_full = url_part_1 + url_part_2 + url_part_3
+#
+#         #call
+#         response = requests.get(url_full)
+#
+#         #store in json
+#         response_json = response.json()
+#
+#         #store in dictionary
+#         object_dictionary = response_json["history"]
+#
+#         #store in dataframe
+#         data = pd.DataFrame(object_dictionary)
+#
+#         #save dataframe as csv
+#         data.to_csv(output_path, index_label = "row_index")
+#
+#         #print time taken
+#         print(coin + " pulled and exported in " +str(dt.datetime.now() - start))
+#
+#     except:
+#         print(coin + " has failed.")
+
+### STUDIO GHIBLI ###
+
+
+
+url = "http://jservice.io/api/categories"
+
+response = requests.get(url)
+
+json = response.json()
+
+print(json)
+
+
+
